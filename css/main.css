@@ -313,6 +313,10 @@ footer > p {
     text-align: end;
 }
 
+footer i {
+    vertical-align: middle;
+}
+
 @media (max-width: 28.75em) {
     footer {
         display: none;
