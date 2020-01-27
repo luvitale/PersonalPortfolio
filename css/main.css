@@ -1,7 +1,29 @@
 :root {
     --main-red: #ae1622;
-    --main-blue: #6a6eae;
+    --main-blue: #3a6eae;
     --main-gray: #324240;
+    --main-happiness: var(--main-blue);
+    animation-name: happiness;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes happiness {
+    0% {
+        --main-happiness: var(--main-blue);
+    }
+    
+    25% {
+        --main-happiness: midnightblue;
+    }
+    
+    50% {
+        --main-happiness: darkgreen;
+    }
+    
+    75% {
+        --main-happiness: forestgreen;
+    }
 }
 
 /* Base reset */
@@ -70,6 +92,54 @@ body {
     color: white;
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* nav */
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--main-red);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.nav-list {
+    display: flex;
+    margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+    .nav {
+        justify-content: center;
+    }
+
+    .nav-list {
+        margin: 0 1rem;
+    }
+}
+
+.nav-list a {
+    display: block;
+    font-size: 2.2rem;
+    padding: 2rem;
+}
+
+.nav-list a:hover {
+    background-color: var(--main-happiness);
+}
+
 .welcome-section {
     display: flex;
     flex-direction: column;
@@ -102,24 +172,7 @@ h1, h2 {
 .projects-section {
     text-align: center;
     padding: 10rem 2rem;
-    background-color: var(--main-blue);
-    animation-name: happiness;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes happiness {
-    25% {
-        background-color: darkslateblue;
-    }
-    
-    50% {
-        background-color: darkgreen;
-    }
-    
-    75% {
-        background-color: limegreen;
-    }
+    background-color: var(--main-happiness);
 }
 
 .projects-section-header {
@@ -148,11 +201,6 @@ h1, h2 {
 .code {
     color: var(--main-gray);
     transition: color 0.3s ease-out;
-}
-
-a {
-    text-decoration: none;
-    color: white;
 }
 
 .project:hover .code {
