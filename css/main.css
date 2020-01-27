@@ -1,0 +1,171 @@
+:root {
+    --main-red: #ae1622;
+    --main-blue: #6a6eae;
+    --main-gray: #324240;
+}
+
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* box-sizing and font sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+
+    /* Set font size for easy rem calculations
+    * default document font size = 16px, 1rem = 16px, 100% = 16px
+    * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+    html {
+        font-size: 60%;
+    }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+    html {
+        font-size: 58%;
+    }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+    html {
+        font-size: 55%;
+    }
+}
+
+body {
+    font-family: 'Liberation Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: white;
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    background-image: linear-gradient(128deg, darkslategray, black);
+}
+
+h1, h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.welcome-section > h1 {
+    font-size: 6rem;
+    color: white;
+}
+
+.welcome-section > h2 {
+    font-size: 5rem;
+    font-weight: 200;
+    font-style: italic;
+    color: var(--main-red);
+}
+
+.projects-section {
+    text-align: center;
+    padding: 10rem 2rem;
+    background-color: var(--main-blue);
+    animation-name: happiness;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes happiness {
+    25% {
+        background-color: darkslateblue;
+    }
+    
+    50% {
+        background-color: darkgreen;
+    }
+    
+    75% {
+        background-color: limegreen;
+    }
+}
+
+.projects-section-header {
+    max-width: 640px;
+    margin: 0 auto 8rem auto;
+    font-size: 3.2rem;
+    border-bottom: 0.1rem solid white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 4rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 6rem;
+}
+
+.project {
+    background-color: var(--main-gray);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
+.code {
+    color: var(--main-gray);
+    transition: color 0.3s ease-out;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.project:hover .code {
+    color: #ff7750;
+}
+
+.project-image {
+    height: calc(100% - 6.8rem);
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-title {
+    font-size: 2rem;
+    padding: 0.8rem 0.2rem;
+}
